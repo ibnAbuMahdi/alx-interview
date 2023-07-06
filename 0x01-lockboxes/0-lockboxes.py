@@ -4,7 +4,7 @@
 
 def canUnlockAll(boxes):
     """ determines if all boxes can be unlocked """
-    cp = [boxes[0]];
+    cp = [boxes[0]]
 
     for box in cp:
         for n in box:
