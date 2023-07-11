@@ -43,6 +43,6 @@ def prime_factors(n: int) -> List[int]:
 def minOperations(n: int) -> int:
     """ returns the minimum operations if possible or 0 o.w. """
     if (is_prime(n)):
-        return 0
+        return 0;
     else:
         return sum(prime_factors(n))
