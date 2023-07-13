@@ -34,7 +34,8 @@ def prime_factors(n: int) -> List[int]:
         while n % i == 0:
             factors.append(i)
             n //= i
-    # If n is greater than 2 and not yet included in the factors list, it must be prime
+    # If n is greater than 2 and not yet included in the factors list,
+    # it must be prime
     if n > 2:
         factors.append(n)
     return factors
