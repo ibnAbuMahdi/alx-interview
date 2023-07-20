@@ -28,12 +28,12 @@ def isvalid(line):
     if not isinstance(line, str):
         return 0
     parts = line.split()
-    sev = len(parts) == 9 and (not parts[-1].isdigit()
-                               or not parts[-2].isdigit())
-    eit = len(parts) > 9 and (not parts[-2].isdigit()
-                              or not parts[-3].isdigit())
+    sev = len(parts) == 9 and (parts[-1].isdigit()
+                               and parts[-2].isdigit())
+    eit = len(parts) > 9 and (parts[-2].isdigit()
+                              and parts[-3].isdigit())
     if eit or sev:
-        return 0
+        return 1
     ip = parts[0].split(".")
     for n in ip:
         if not n.isdigit():
