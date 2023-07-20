@@ -28,7 +28,7 @@ def isvalid(line):
     if not isinstance(line, str):
         return 0
     parts = line.split()
-    if parts[7].isdigit() and parts[8].isdigit():
+    if parts[-1].isdigit() and parts[-2].isdigit():
         return 1
     ip = parts[0].split(".")
     for n in ip:
