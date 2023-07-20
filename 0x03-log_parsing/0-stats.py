@@ -28,8 +28,8 @@ def isvalid(line):
     if not isinstance(line, str):
         return 0
     parts = line.split()
-    sev = len(parts) == 7 and parts[-1].isdigit() and parts[-2].isdigit()
-    eit = parts[-2].isdigit() and parts[-3].isdigit() and len(parts) > 7
+    sev = len(parts) == 8 and parts[-1].isdigit() and parts[-2].isdigit()
+    eit = parts[-2].isdigit() and parts[-3].isdigit() and len(parts) > 8
     if eit or sev:
         return 1
     ip = parts[0].split(".")
