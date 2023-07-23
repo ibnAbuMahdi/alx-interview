@@ -12,7 +12,7 @@ def parse_line(line, codes={}, size=[0]):
     """ parse the line """
     items = line.split()
     size[0] += int(items[-1])
-    sec = items[-3].isdigit() and int(items[-3] in codes
+    sec = items[-3].isdigit() and int(items[-3]) in codes
     if sec or int(items[-2]) in codes:
         codes[int(items[-2])] += 1
 
