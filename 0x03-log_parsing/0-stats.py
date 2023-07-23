@@ -37,7 +37,7 @@ def isvalid(line):
     end = len(parts) > 8 and parts[7].isdigit() and parts[8].isdigit()
     if end or (parts[-1].isdigit() and parts[-2].isdigit()):
         return 1
-    return 0
+    return 1
 
 
 try:
