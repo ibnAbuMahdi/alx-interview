@@ -12,7 +12,7 @@ def parse_line(line, codes={}, size=[0]):
     """ parse the line """
     items = line.split()
     size[0] += int(items[-1])
-    if int(items[-2]) in codes:
+    if int(items[-3]) in codes or int(items[-2]) in codes:
         codes[int(items[-2])] += 1
 
 
@@ -28,16 +28,16 @@ def isvalid(line):
     if not isinstance(line, str):
         return 0
     parts = line.split()
-    end = parts[7].isdigit() and parts[6].isdigit()
-    if end or (parts[-1].isdigit() and parts[-2].isdigit()):
-        return 1
     ip = parts[0].split(".")
     for n in ip:
         if not n.isdigit():
             return 0
     if parts[1] != "-":
         return 0
-    return 1
+    end = len(parts) > 8 and parts[7].isdigit() and parts[8].isdigit()
+    if end or (parts[-1].isdigit() and parts[-2].isdigit()):
+        return 1
+    return 0
 
 
 try:
