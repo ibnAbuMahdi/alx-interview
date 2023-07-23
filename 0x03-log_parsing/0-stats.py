@@ -12,7 +12,8 @@ def parse_line(line, codes={}, size=[0]):
     """ parse the line """
     items = line.split()
     size[0] += int(items[-1])
-    if int(items[-3]) in codes or int(items[-2]) in codes:
+    sec = items[-3].isdigit() and int(items[-3] in codes
+    if sec or int(items[-2]) in codes:
         codes[int(items[-2])] += 1
 
 
@@ -37,7 +38,7 @@ def isvalid(line):
     end = len(parts) > 8 and parts[7].isdigit() and parts[8].isdigit()
     if end or (parts[-1].isdigit() and parts[-2].isdigit()):
         return 1
-    return 1
+    return 0
 
 
 try:
