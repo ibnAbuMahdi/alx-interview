@@ -1,35 +1,38 @@
 #!/usr/bin/python3
 
+def b22(j, data):
+    return j+1 < len(data) and data[j+1] > 127 \
+        and data[j+1] < 192
+
 
 def validUTF8(data):
     if isinstance(data, list) and len(data):
-        l = len(data)
+        ln = len(data)
         j = 0
-        b22 = lambda i, ls: i+1 < len(ls) and ls[i+1] > 127 \
-            and ls[i+1] < 192
-        b1 = lambda i, dat: dat[i] > 0 and dat[i] < 128
-        b2 = lambda i, dat: dat[i] > 191 and dat[i] < 224 and b22(i, dat)
-        b3 = lambda i, dat: dat[i] > 223 and dat[i] < 240 \
-            and b22(i, dat) and b22(i+1, dat)
-        b4 = lambda i, dat: dat[i] > 239 and dat[i] < 248 \
-            and b22(i, dat) \
-            and b22(i+1, dat) \
-            and b22(i+2, dat)
 
-        while j < l:
-            if b1(j, data):
+        while j < ln:
+            b1 = data[j] > 0 and data[j] < 128
+            b2 = data[j] > 191 and data[j] < 224 and b22(j, data)
+            b3 = data[j] > 223 and data[j] < 240 \
+                and b22(j, data) and b22(j+1, data)
+            b4 = data[j] > 239 and data[j] < 248 \
+                and b22(j, data) \
+                and b22(j+1, data) \
+                and b22(j+2, data)
+            if b1:
                 j += 1
                 continue
-            elif b2(j, data):
+            elif b2:
                 j += 2
                 continue
-            elif b3(j, data):
+            elif b3:
                 j += 3
                 continue
-            elif b4(j, data):
+            elif b4:
                 j += 4
                 continue
             else:
                 return False
         return True
     return False
+
