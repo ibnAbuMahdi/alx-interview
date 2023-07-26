@@ -10,7 +10,7 @@ def validUTF8(data):
     if isinstance(data, list) and len(data):
         ln = len(data)
         j = 0
-
+# redundant comment just to have a commit
         while j < ln:
             b1 = data[j] > 0 and data[j] < 128
             b2 = data[j] > 191 and data[j] < 224 and b22(j, data)
