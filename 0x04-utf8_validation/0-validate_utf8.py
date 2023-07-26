@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def b22(j, data):
     return j+1 < len(data) and data[j+1] > 127 \
         and data[j+1] < 192
@@ -35,4 +36,3 @@ def validUTF8(data):
                 return False
         return True
     return False
-
