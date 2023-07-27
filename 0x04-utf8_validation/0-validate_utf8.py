@@ -14,7 +14,7 @@ def validUTF8(data):
         ln = len(data)
         j = 0
         while j < ln:
-            b1 = data[j] >= 0 and data[j] < 128
+            b1 = data[j] > 0 and data[j] < 128
             b2 = data[j] > 191 and data[j] < 224 and b22(j, data)
             b3 = data[j] > 223 and data[j] < 240 \
                 and b22(j, data) and b22(j+1, data)
