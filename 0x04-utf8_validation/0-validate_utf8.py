@@ -15,10 +15,10 @@ def validUTF8(data):
         j = 0
         while j < ln:
             b1 = data[j] >= 0 and data[j] < 128
-            b2 = data[j] > 192 and data[j] < 224 and b22(j, data)
-            b3 = data[j] > 224 and data[j] < 240 \
+            b2 = data[j] > 191 and data[j] < 224 and b22(j, data)
+            b3 = data[j] > 223 and data[j] < 240 \
                 and b22(j, data) and b22(j+1, data)
-            b4 = data[j] > 240 and data[j] < 248 \
+            b4 = data[j] > 239 and data[j] < 248 \
                 and b22(j, data) \
                 and b22(j+1, data) \
                 and b22(j+2, data)
