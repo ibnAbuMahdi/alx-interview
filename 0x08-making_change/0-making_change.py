@@ -7,17 +7,12 @@ def makeChange(coins, num):
     if num <= 0:
         return 0
 
-    change = [float('inf')] * (num + 1)
-    change[0] = 0
+    MAX_VALUE = float('inf')
+    dp = [0] + [MAX_VALUE] * num
 
     for i in range(1, num + 1):
-        for j in range(len(coins)):
-            if coins[j] <= i:
-                sub_res = change[i - coins[j]]
-                if sub_res != float('inf') and sub_res + 1 < change[i]:
-                    change[i] = sub_res + 1
+        for coin in coins:
+            if i - coin >= 0:
+                dp[i] = min(dp[i], dp[i - coin] + 1)
 
-    if change[num] == float('inf'):
-        return -1
-    else:
-        return change[num]
+    return dp[num] if dp[num] != MAX_VALUE else -1
