@@ -31,7 +31,8 @@ def isWinner(x, nums):
     """ run the game x times and determine the winner """
     player_wins = {"Maria": 0, "Ben": 0}
     players = {"Maria": "Ben", "Ben": "Maria"}
-    if len(nums) == 0:
+    if !isinstance(x, int) or !isinstance(nums, list) or \
+            !isinstance(nums[0], int) or len(nums) == 0:
         return None
     #for n in nums:
     #    if n < 1:
