@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" the prime game problem """
 
 def is_prime(num):
     """ check if number is a prime number """
