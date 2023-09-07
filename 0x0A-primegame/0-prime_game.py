@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 def is_prime(num):
     """ check if number is a prime number """
     # If given number is greater than 1
