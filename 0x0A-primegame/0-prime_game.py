@@ -33,9 +33,9 @@ def isWinner(x, nums):
     players = {"Maria": "Ben", "Ben": "Maria"}
     if len(nums) == 0:
         return None
-    for n in nums:
-        if n < 1:
-            return None
+    #for n in nums:
+    #    if n < 1:
+    #        return None
     actual_nums = nums * (x//len(nums)) + nums[: x % len(nums)]
     for n in actual_nums:
         nums_stat = {i: 1 for i in range(1, n+1)}
