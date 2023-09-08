@@ -35,11 +35,12 @@ def isWinner(x, nums):
     if len(nums) == 0 or not isinstance(x, int) or not \
             isinstance(nums, list) or not isinstance(nums[0], int):
         return None
+    nums.sort()
     actual_nums = nums * (x//len(nums)) + nums[: x % len(nums)]
     history = tuple()
     for n in actual_nums:
         next_pl = "Maria"
-        j = 0 
+        j = 0
         if len(history):
             next_pl, j = history
         nums_stat = {i: 1 for i in range(j+1, n+1)}
