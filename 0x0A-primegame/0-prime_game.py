@@ -39,7 +39,7 @@ def isWinner(x, nums):
     history = tuple()
     for n in actual_nums:
         next_pl = "Maria"
-        j = 1
+        j = 0 
         if len(history):
             next_pl, j = history
         nums_stat = {i: 1 for i in range(j+1, n+1)}
