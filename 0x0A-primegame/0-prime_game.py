@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ the prime game problem """
 
+
 def is_prime(num):
     """ check if number is a prime number """
     # If given number is greater than 1
@@ -35,11 +36,14 @@ def isWinner(x, nums):
             isinstance(nums, list) or not isinstance(nums[0], int):
         return None
     actual_nums = nums * (x//len(nums)) + nums[: x % len(nums)]
+    history = tuple()
     for n in actual_nums:
-        nums_stat = {i: 1 for i in range(1, n+1)}
         next_pl = "Maria"
+        j = 1
+        if len(history):
+            next_pl, j = history
+        nums_stat = {i: 1 for i in range(j+1, n+1)}
         prime_exist = True
-
         while 1 in list(nums_stat.values()) and prime_exist:
             keys = [k for k in nums_stat.keys() if nums_stat[k]]
             for k in keys:
@@ -49,10 +53,12 @@ def isWinner(x, nums):
                     if keys[-1] == k:
                         player_wins[players[next_pl]] += 1
                         prime_exist = False
+                        history = (next_pl, k)
                     break
                 elif keys[-1] == k:
                     prime_exist = False
                     player_wins[players[next_pl]] += 1
+                    history = (next_pl, k)
     max_score = max(list(player_wins.values()))
     if list(player_wins.values()).count(max_score) == 1:
         return list(player_wins.keys())[list(player_wins.values())
